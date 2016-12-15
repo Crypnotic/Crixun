@@ -56,6 +56,6 @@
 	
 	<modules>
 		<module>CrixunAPI</module>
-		<module>CrixunImpl</module>
+		<module>Crixun</module>
 	</modules>
 </project>
