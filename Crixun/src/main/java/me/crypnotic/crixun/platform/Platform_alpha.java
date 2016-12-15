@@ -11,7 +11,7 @@ import me.crypnotic.crixun.api.message.MessageBuilder;
 import me.crypnotic.crixun.api.utilities.Outcome;
 import me.crypnotic.crixun.api.utilities.Reflections;
 
-public class Platform_v1_8_R2 implements IPlatform {
+public class Platform_alpha implements IPlatform {
 
 	@Override
 	public PacketWrapper craftChatPacket(MessageBuilder builder) {

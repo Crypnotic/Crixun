@@ -16,7 +16,19 @@ public class Crixun extends JavaPlugin {
 
 		String version = Reflections.getFriendlyVersion();
 		try {
-			Class<?> klass = Class.forName(getClass().getPackage().getName() + ".platform.Platform_" + version);
+			StringBuilder platform = new StringBuilder(".platform.Platform_");
+			switch (version) {
+			case "v1_8_R1": {
+				platform.append(version);
+				break;
+			}
+			default: {
+				platform.append("alpha");
+				break;
+			}
+			}
+
+			Class<?> klass = Class.forName(getClass().getPackage().getName() + platform.toString());
 			if (!IPlatform.class.isAssignableFrom(klass)) {
 				logger.severe("Version `" + version + "` is not yet supported!");
 			}
