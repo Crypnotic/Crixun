@@ -1,8 +1,10 @@
 package me.crypnotic.crixun;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcstats.Metrics;
 
 import me.crypnotic.crixun.api.IPlatform;
 import me.crypnotic.crixun.api.utilities.Reflections;
@@ -36,12 +38,16 @@ public class Crixun extends JavaPlugin {
 			Reflections.setPlatform((IPlatform) klass.newInstance());
 
 			logger.info("Platform implementation `" + version + "` successfully hooked.");
+
+			new Metrics(this).start();
 		} catch (ClassNotFoundException exception) {
 			logger.severe("Version `" + version + "` is not yet supported!");
 		} catch (InstantiationException exception) {
 			logger.severe("Version `" + version + "` is not yet supported!");
 		} catch (IllegalAccessException exception) {
 			logger.severe("IPlatform instance is already initialized. Dirty Haxors?");
+		} catch (IOException exception) {
+			logger.warning("Failed to initialize Metrics stat-tracking.");
 		}
 	}
 }
