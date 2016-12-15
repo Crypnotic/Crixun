@@ -56,6 +56,12 @@
 							<include>me.crypnotic.crixun:CrixunAPI</include>
 						</includes>
 					</artifactSet>
+					<relocations>
+						<relocation>
+                            <pattern>org.mcstats</pattern>
+                            <shadedPattern>me.crypnotic.crixun.metrics</shadedPattern>
+                        </relocation>
+					</relocations>
 				</configuration>
 			</plugin>
 		</plugins>
